@@ -3,7 +3,8 @@
 using namespace std;
 class Teacher // class declaration
 
-{ // access modifier
+{ 
+    // access modifier
 public:
     // properties
     string tname;
