@@ -14,16 +14,22 @@ public:
     // parametized constructor
     Teacher(string name, string dept, string subject, double salary)
     {
-        // left - property of object
-        // Right - paremeters
-        //  These can be understood by the compiler 
-        //when we use the this pointer.
         this->name = name;
         this->dept = dept;
         this->subject = subject;
         this->salary = salary;
-        //(*this).name=name;
     }
+    Teacher(Teacher &orgobj) // copy constructor
+    {
+        cout << "This is a Custom copy constructor" << endl;
+        /*left part- points to the current object (T2)
+        Right part - points to the original object (T1)*/
+        this->name = orgobj.name;
+        this->dept = orgobj.dept;
+        this->subject = orgobj.subject;
+        this->salary = orgobj.salary;
+    }
+
     // member function
     void getinfo()
     {
@@ -36,6 +42,8 @@ public:
 int main()
 {
     Teacher T1("Shruti", "computer Science", "Mathematics", 5000);
-    T1.getinfo();
+    Teacher T2(T1); // OBJECT IS PASSED AS AN ARGUMENT(custom  copy constructor)
+    T2.getinfo();
+
     return 0;
 }
